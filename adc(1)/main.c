@@ -18,7 +18,7 @@ int main()
   ADC1->CR&=~((unsigned int)0x30000000);
   ADC1->CR|=1<<29;
   //Attesa fine sequenza (~10us)
-  for(int i=0;i<1000;i++);
+  for(int i=0;i<721;i++);
   //VERIFICO CHE ADCEN=0
   if(ADC1->CR & 0x1)
     ADC1->CR&=~((unsigned int)1);
