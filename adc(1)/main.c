@@ -7,7 +7,8 @@ int main()
   //Attivare bus clk per GPIOA e ADC12
   RCC->AHBENR|=1<<17;
   RCC->AHBENR|=1<<28;
-  RCC->CFGR2|=1<<8;
+  //adn1_2 userà il clock del bus ahb
+  RCC->CFGR2&=~((unsigned int)0x00000100);
   //Configurare PA0 come input analogico
   GPIOA->MODER|=3<<0;
   //Configurare clock per adc nei registri RCC_CFGR2 e ADC12_CCR
