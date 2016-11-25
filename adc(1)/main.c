@@ -37,7 +37,6 @@ int main()
  // LOOP
   while(1){
     //Inizia conversione (ADSTART = 1)
-    if(GPIOA->IDR&0x1==0x1){//se il tasto è premuto allora converto!
       ADC1->CR|=1<<2;
       //Attesa fine conversione (EOC = 1)
        while(!(ADC1->ISR & 0x00000004 ));
@@ -46,6 +45,6 @@ int main()
        //Conversione codice->tensione
       ADC_valc=(ADC_val*3300)/4096;
       printf("Il valore risultante dalla conversione e' %f mV\n",ADC_valc);
-    }
+
    }
 }
